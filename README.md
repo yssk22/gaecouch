@@ -1,6 +1,7 @@
 # Installation
 
-configure app.yml for your application id, and update command.
+configure app.yaml copied from app.yaml.example, 
+and deploy the application on your GAE environment.
 
 ## Example
 
