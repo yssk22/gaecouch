@@ -21,6 +21,7 @@ class Database(db.Model):
     doc_del_count = db.IntegerProperty(default = 0)
     compact_running = db.BooleanProperty(default = False)
     instance_start_time = db.DateTimeProperty(auto_now_add = True)
+    disk_size = db.IntegerProperty(default = 0)
 
     def to_dict(self):
         dict = {}
