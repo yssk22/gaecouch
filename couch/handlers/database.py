@@ -7,7 +7,9 @@ from couch import errors
 
 class AllDBs(BaseHandler):
     def get(self):
-        pass
+        q = models.Database.all()
+        list = [l.key().name() for l in q]
+        self.writeln(list)
 
 class Database(BaseHandler):
     ''' database handler 
