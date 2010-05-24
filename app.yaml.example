@@ -4,5 +4,8 @@ runtime: python
 api_version: 1
 
 handlers:
+- url: /_utils
+  static_dir: futon
+
 - url: /.*
   script: dispatch.py
