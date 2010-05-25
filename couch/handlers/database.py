@@ -1,3 +1,4 @@
+import logging
 from google.appengine.ext import webapp
 from google.appengine.ext import db
 from django.utils import simplejson as json
@@ -28,9 +29,10 @@ class Database(BaseHandler):
             raise errors.NotFound('no_db_file')
         try:
             document = json.loads(self.request.body)
-        except ValueError:
+        except ValueError, e:
+            logging.info(e)
             raise errors.BadRequest(reason = 'invalid UTF-8 JSON')
-        document = models.Document.save(database, document)
+        document = database.save(document)
         self.writeln({ 'ok' : True,
                        'id' : document.id,
                        'rev' : document.rev })

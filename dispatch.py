@@ -18,6 +18,7 @@ application = webapp.WSGIApplication(
      (r'/_stats', couch.handlers.misc.Stats),
      (r'/_session',  couch.handlers.misc.Session),
      (r'/([^/]+)/?', couch.handlers.database.Database),
+     (r'/([^/]+)/_bulk_docs', couch.handlers.document.BulkDocs),
      (r'/([^/]+)/_design/([^/]+)/?', couch.handlers.document.DesignDocument),
      (r'/([^/]+)/([^/]+)/?', couch.handlers.document.Document)],
     debug=True)
